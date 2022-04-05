@@ -1,3 +1,48 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#61dafb;
+}
+
+.logo {
+  margin-left: 1rem;
+  color: white;
+  font-size: 50px;
+}
+
+.ul {
+  display:flex;
+  margin: 25px;
+}
+
+.item {
+  display: flex;
+}
+
+li {
+  margin: 0 1rem;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+body {
+  background-color: #E3E9D9;
+}
+
+h1 {
+  font-family: 'Indie Flower', cursive;
+  font-size: 60px;
+}
+
+h2 {
+  font-family: 'Grape Nuts', cursive;
+}
+
 .App {
   text-align: center;
 }

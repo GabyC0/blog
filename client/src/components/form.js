@@ -1,66 +1,79 @@
 import { useState } from "react";
 
 const Form = (props) => {
-    const [student, setStudent] = useState({
-        firstname: "",
-        lastname: ""
+    const [blog, setBlogPost] = useState({
+        title: "",
+        blurb: "",
+        content: ""
     });
 
     //create functions that handle the event of the user typing into the form
-    const handleNameChange = (event) => {
-        const firstname = event.target.value;
-        setStudent((student) => ({ ...student, firstname }));
+    const handleTitleChange = (event) => {
+        const title = event.target.value;
+        setBlogPost((blog) => ({ ...blog, title }));
 
     }
 
-    const handleLastnameChange = (event) => {
-        const lastname = event.target.value;
-        setStudent((student) => ({ ...student, lastname }));
+    const handleBlurbChange = (event) => {
+        const blurb = event.target.value;
+        setBlogPost((blog) => ({ ...blog, blurb }));
+
+    }
+
+    const handleContentChange = (event) => {
+        const content = event.target.value;
+        setBlogPost((blog) => ({ ...blog, content }));
 
     }
 
     //A function to handle the post request
-    const postStudent = (newStudent) => {
-        return fetch('http://localhost:5001/api/students', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'}, 
-        body: JSON.stringify(newStudent)
-      }).then((response) => {
-          return response.json()
-      }).then((data) => {
+    const postBlog = async (newBlogPost) => {
+        const response = await fetch('http://localhost:5001/api/blogs', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newBlogPost)
+        });
+        const data = await response.json();
         console.log("From the post ", data);
-        props.addStudent(data);
-      
-    });
+        props.addBlogPost(data);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        postStudent(student);
+        postBlog(blog);
         
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <fieldset>
-                <label>First Name</label>
+                <label>Title </label>
                 <input
                     type="text"
-                    id="add-user-name"
-                    placeholder="First Name"
+                    id="add-blog-title"
+                    placeholder="Title"
                     required
-                    value={student.name}
-                    onChange={handleNameChange}
+                    value={blog.title}
+                    onChange={handleTitleChange}
 
                 />
-                <label>Last Name</label>
+                <label>Summary Blurb</label>
                 <input
                     type="text"
-                    id="add-user-lastname"
-                    placeholder="Last Name"
+                    id="add-post-blurb"
+                    placeholder="Summary blurb"
                     required
-                    value={student.lastname}
-                    onChange={handleLastnameChange}
+                    value={blog.blurb}
+                    onChange={handleBlurbChange}
+                />
+                <label>Content</label>
+                <input
+                    type="text"
+                    id="add-blog-Content"
+                    placeholder="Blog Content"
+                    required
+                    value={blog.lastname}
+                    onChange={handleContentChange}
                 />
             </fieldset>
             <button type="submit">Add</button>
