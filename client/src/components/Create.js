@@ -1,10 +1,12 @@
 import { useState } from "react";
 
-const Form = (props) => {
+const Create = (props) => {
     const [blog, setBlogPost] = useState({
         title: "",
         blurb: "",
-        content: ""
+        content: "",
+        img: "",
+        alt: ""
     });
 
     //create functions that handle the event of the user typing into the form
@@ -126,4 +128,4 @@ const Form = (props) => {
     );
 };
 
-export default Form;
+export default Create;
