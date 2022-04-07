@@ -13,7 +13,10 @@ export const Nav = () => {
                     <Link to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/indivblogpost'>Blogs</Link>
+                    <Link to='/blogs'>Blogs</Link>
+                </li>
+                <li>
+                    <Link to='/create'>Create Blog</Link>
                 </li>
                 <li>
                     <Link to='/about'>About</Link>

@@ -26,6 +26,18 @@ const Form = (props) => {
 
     }
 
+    const handleImgChange = (event) => {
+        const img = event.target.value;
+        setBlogPost((blog) => ({ ...blog, img }));
+
+    }
+
+    const handleAltChange = (event) => {
+        const alt = event.target.value;
+        setBlogPost((blog) => ({ ...blog, alt }));
+
+    }
+
     //A function to handle the post request
     const postBlog = async (newBlogPost) => {
         const response = await fetch('http://localhost:5001/api/blogs', {
@@ -38,10 +50,25 @@ const Form = (props) => {
         props.addBlogPost(data);
     }
 
+    //A function to handle the UPDATE request
+    const updateBlog = async (existingBlog) => {
+        const response = await fetch(`/api/blogs/${existingBlog.id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringigy(existingBlog)
+        });
+        const data = await response.json();
+        console.log('From put req ', data);
+        props.saveBlog(data);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        postBlog(blog);
-        
+        if(blog.id) {
+            updateBlog(blog);
+        } else {
+            postBlog(blog);
+        }
     };
 
     return (
@@ -69,11 +96,29 @@ const Form = (props) => {
                 <label>Content</label>
                 <input
                     type="text"
-                    id="add-blog-Content"
+                    id="add-blog-content"
                     placeholder="Blog Content"
                     required
                     value={blog.lastname}
                     onChange={handleContentChange}
+                />
+                <label>Image Url</label>
+                <input
+                    type="url"
+                    id="add-blog-img"
+                    placeholder="Image Url"
+                    required
+                    value={blog.img}
+                    onChange={handleImgChange}
+                />
+                <label>Img Description</label>
+                <input
+                    type="text"
+                    id="add-blog-img-description"
+                    placeholder="Image Description"
+                    required
+                    value={blog.alt}
+                    onChange={handleAltChange}
                 />
             </fieldset>
             <button type="submit">Add</button>

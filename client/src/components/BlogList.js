@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import Form from "./Form";
+import Form from "./Create";
+// import {Nav} from './Nav'
 
 function BlogList() {
 
@@ -22,22 +23,32 @@ function BlogList() {
 
     
 
-    const addBlog = (newBlog) => {
-        setBlogs((blogs) => [...blogs, newBlog]);
-    }
+    // const addBlog = (newBlog) => {
+    //     setBlogs((blogs) => [...blogs, newBlog]);
+    // }
 
 
     return (
+    
       <div className="blogposts">
-        <ul>
+          {/* <Nav/> */}
+          <div>
+        {/* <ul> */}
             {blogs.map(blog =>
-                <li key={blog.id}> <b>{blog.title}</b> <br/> <br/> {blog.blurb} <br/> </li>)}
-        </ul>
+                <button key={blog.id}> <b>{blog.title}</b> <br/> <br/> {blog.blurb} <br/> </button>)}
+        {/* </ul> */}
         <ul>
             {blogs.map(blog => 
-                <li key={blog.id}>{blog.title}{blog.blurb}{blog.content} <img src={blog.img} alt={blog.alt}></img></li>)}
+                <section>
+                    <li key={blog.id}> <b>{blog.title}</b> <br/> <br/> {blog.blurb} <br/>{blog.content} <br/><br/> <img width='450px' src={blog.img} alt={blog.alt}></img><br/> </li>
+                </section>
+                
+                
+                
+                )}
         </ul>
-        <Form addBlog={addBlog} />
+        {/* <Form addBlog={addBlog} /> */}
+        </div>
       </div>
     );
   }

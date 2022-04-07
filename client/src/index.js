@@ -5,13 +5,24 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import BlogList from './components/BlogList';
+import { Nav } from './components/Nav'
 
 ReactDOM.render(
 
   <Router>
     <Routes>
-      <Route path='/' element={<App/>}/>
-      <Route path='/blogs' element={<BlogList/>}/>
+      <Route path="/" element={<App/>}>
+        <Route index element={<BlogList/>}/>
+        <Route path="blogs" element={<BlogList/>}/>
+        <Route path="*" element={
+          <main style={{ padding: "1rem" }}>
+            <p>There's nothing here!</p>
+          </main>
+          }/>
+
+      </Route>
+      {/* <Route exact path='/' element={<App/>}/>
+      <Route path='/blogs' element={<BlogList/>}/> */}
     </Routes>
   </Router>,
 
