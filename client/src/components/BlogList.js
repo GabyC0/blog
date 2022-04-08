@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 //import Form from "./Create";
 //import {Nav} from './Nav'
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 function BlogList() {
 
@@ -28,23 +28,24 @@ function BlogList() {
     return (
     
       <div className="blogposts">
-          {/* <Nav/> */}
-          <div>
-        {/* <ul> */}
+          <div className="blogList">
             {blogs.map(blog =>
-                <Link to={`/blogs/${blog.id}`}><button key={blog.id}> <b>{blog.title}</b> <br/> <br/> {blog.blurb} <br/></button> </Link>
+                <Link to={`/blogs/${blog.id}`}>
+                    <button className="singleBlog"
+                    key={blog.id}> 
+                    <b>{blog.title}
+                    </b> 
+                    <br/> 
+                    <br/> 
+                    {blog.blurb} 
+                    <br/>
+                    </button> 
+                </Link>
                 // <button key={blog.id}> <b>{blog.title}</b> <br/> <br/> {blog.blurb} <br/> </button>
                 )}
-        {/* </ul> */}
-        {/* <ul>
-            {blogs.map(blog => 
-                <section>
-                    <li key={blog.id}> <b>{blog.title}</b> <br/> <br/> {blog.blurb} <br/>{blog.content} <br/><br/> <img width='450px' src={blog.img} alt={blog.alt}></img><br/> </li>
-                </section>
-                )}
-        </ul> */}
         {/* <Form addBlog={addBlog} /> */}
         </div>
+        <Outlet/>
       </div>
     );
   }

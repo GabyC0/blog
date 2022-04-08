@@ -10,7 +10,7 @@ import Create from './components/Create'
 import {IndivBlog} from './components/IndivBlog'
 import {About} from './components/About'
 import {Contact} from './components/Contact'
-//import {Edit} from './components/Edit'
+// import {Edit} from './components/Edit'
 import {Delete} from './components/Delete'
 import {useParams} from 'react-router-dom'
 
@@ -46,8 +46,8 @@ function App() {
 
 
       <Route exact path='/blogs' element={<BlogList />}/>
-      <Route path="/blogs/:blogId" render={(props) => <IndivBlog {...props} />}/>
-        {/* <Route path="/blogs/:blogId" element={<IndivBlog/>}/> */}
+      {/* <Route path="/blogs/:blogId" render={(props) => <IndivBlog {...props} />}/> */}
+        <Route path="/blogs/:blogId" element={<IndivBlog/>}/>
           {/* <Route path="/blogs/:blogId/edit" element={<Edit />}/> */}
           <Route path="/blogs/:blogId/delete" element={<Delete />}/>
       <Route path='/create' element={<Create />}/>

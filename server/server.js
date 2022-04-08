@@ -24,6 +24,14 @@ app.get('/api/blogs', cors(), async (req, res) => {
     }
 });
 
+app.get('/api/blogs/:blogId', cors(), async (req, res) => {
+    const blogId = req.params.blogId;
+    //can eliminate , [blogId] bc being reffed before
+    const getId = await db.query(`SELECT * FROM blogposts WHERE id=${blogId}`);
+    console.log("getId", getId.rows);
+    res.send(getId.rows);
+});
+
 //create the POST request
 app.post('/api/blogs', cors(), async (req, res) => {
     const newBlogPost = { title: req.body.title, blurb: req.body.blurb, content: req.body.content, img: req.body.img, alt: req.body.alt }
@@ -38,15 +46,19 @@ app.post('/api/blogs', cors(), async (req, res) => {
 
 //put request - update request
 app.put('/api/blogs/:blogId', cors(), async (req, res) => {
+    //to grab that param
     const blogId = req.params.blogId;
-    //id included to know what to select
-    const updateBlog = { title: req.body.title, blurb: req.body.blurb, content: req.body.content, img: req.body.img, alt: req.body.alt }
+    //object of the student that you want to update
+    const updateBlog = { id: req.body.id, title: req.body.title, blurb: req.body.blurb, content: req.body.content, img: req.body.img, alt: req.body.alt }
     console.log('body', req.body)
     //what is this doing exactly?????? Do I need to have $1 set to id if I'm not going to be updating it?? blogId not just id??
-    const query = `UPDATE blogposts SET title=$1, blurb=$2, content=$3, img=$4, alt=$5 WHERE id = ${blogId} RETURNING *`;    
+    const query = `UPDATE blogposts SET title=$1, blurb=$2, content=$3, img=$4, alt=$5 WHERE id=${blogId} RETURNING *`;
+    console.log(query);
+    //passing values from updated blog  
     const values = [updateBlog.title, updateBlog.blurb, updateBlog.content, updateBlog.img, updateBlog.alt];
     console.log("values", values);
     try{
+        //query to the database
         const updated = await db.query(query, values);
         console.log(updated.rows[0]);
         res.send(updated.rows[0]);

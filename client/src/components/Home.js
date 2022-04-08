@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {Nav} from './Nav'
 
 export const Home = () => {
@@ -12,6 +12,9 @@ export const Home = () => {
         <div>
           <h2>Getting lost in the right direction...</h2>
         </div>
+
+        <Link className='homeBtn' to='/create'><button>Add New Blog</button></Link>
+        <Link className='homeBtn' to='/about'><button>About Me</button></Link>
         
       </div>
   )
