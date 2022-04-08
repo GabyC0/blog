@@ -28,6 +28,7 @@ function BlogList() {
     return (
     
       <div className="blogposts">
+          <h1>Blog List</h1>
           <div className="blogList">
             {blogs.map(blog =>
                 <Link to={`/blogs/${blog.id}`}>

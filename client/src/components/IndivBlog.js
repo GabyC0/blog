@@ -26,6 +26,7 @@ export const IndivBlog = () => {
             <h3 key={params.blogId}>
                 {blogs.title} 
                 <br/>
+                <br/>
                 {blogs.blurb} 
                 <br/>
                 {blogs.content}

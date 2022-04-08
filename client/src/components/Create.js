@@ -74,7 +74,8 @@ const Create = (props) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
+            <h1>Create New Blog Entry </h1>
             <fieldset>
                 <label>Title </label>
                 <input
@@ -86,16 +87,18 @@ const Create = (props) => {
                     onChange={handleTitleChange}
 
                 />
-                <label>Summary Blurb</label>
+                <br/>
+                <label>Summary Blurb </label>
                 <input
                     type="text"
                     id="add-post-blurb"
-                    placeholder="Summary blurb"
+                    placeholder="Summary Blurb"
                     required
                     value={blog.blurb}
                     onChange={handleBlurbChange}
                 />
-                <label>Content</label>
+                <br/>
+                <label>Content </label>
                 <input
                     type="text"
                     id="add-blog-content"
@@ -104,16 +107,18 @@ const Create = (props) => {
                     value={blog.lastname}
                     onChange={handleContentChange}
                 />
-                <label>Image Url</label>
+                <br/>
+                <label>Image Url </label>
                 <input
                     type="url"
                     id="add-blog-img"
-                    placeholder="Image Url"
+                    placeholder="Image URL"
                     required
                     value={blog.img}
                     onChange={handleImgChange}
                 />
-                <label>Img Description</label>
+                <br/>
+                <label>Img Description </label>
                 <input
                     type="text"
                     id="add-blog-img-description"
@@ -122,8 +127,10 @@ const Create = (props) => {
                     value={blog.alt}
                     onChange={handleAltChange}
                 />
+                <br/>
             </fieldset>
-            <button type="submit">Add</button>
+            <br/>
+            <button className="createBtn" type="submit">Add</button>
         </form>
     );
 };
