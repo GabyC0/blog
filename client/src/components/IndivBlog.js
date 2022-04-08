@@ -22,13 +22,14 @@ export const IndivBlog = () => {
   return (
     <div className="contacts">
         <h2>Blog Number: {params.blogId}</h2>
-        <div>
+        <div className="blogItem">
             <h3 key={params.blogId}>
                 {blogs.title} 
                 <br/>
                 {blogs.blurb} 
                 <br/>
                 {blogs.content}
+                <br/>
                 <br/>
                 {<img width='450px' src={blogs.img} alt={blogs.alt}></img>}</h3>
                 <br/>
