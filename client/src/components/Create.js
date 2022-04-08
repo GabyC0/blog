@@ -74,8 +74,10 @@ const Create = (props) => {
     };
 
     return (
-        <form className="form" onSubmit={handleSubmit}>
+        <div>
             <h1>Create New Blog Entry </h1>
+        <form className="form" onSubmit={handleSubmit}>
+            
             <fieldset>
                 <label>Title </label>
                 <input
@@ -85,7 +87,6 @@ const Create = (props) => {
                     required
                     value={blog.title}
                     onChange={handleTitleChange}
-
                 />
                 <br/>
                 <label>Summary Blurb </label>
@@ -132,6 +133,7 @@ const Create = (props) => {
             <br/>
             <button className="createBtn" type="submit">Add</button>
         </form>
+        </div>
     );
 };
 

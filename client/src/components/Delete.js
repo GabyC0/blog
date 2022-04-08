@@ -1,20 +1,45 @@
 import React, { useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
 
-export const Delete = (props) => {
-    const [deleteBlog, setDeleteBlog] = useState('');
+
+export const Delete = () => {
+    let params = useParams();
+    const navigate = useNavigate();
+    console.log('params', params);
+    //const [deleteBlog, setDeleteBlog] = useState('');
 
 //create a function to call with on submit
 //combination of create and indiv blog fetch
+
+
+const handleOnClick = () => {
+    fetch(`http://localhost:5001/api/blogs/${params.blogId}`, {
+        method: 'DELETE'
+        }).then(() => {  
+        navigate('/blogs');
+    })
+    // confirmAlert({
+    //     title: 'Confirm to submit',
+    //     message: 'Are you sure you want to delete?',
+    //     buttons: [
+    //         {
+    //             label: 'Confirm delete',
+    //             onClick: () => alert('Yes')
+    //         },
+    //         {
+    //             label: "Don't delete",
+    //             onClick: () => alert('No')
+    //         }
+    //     ]
+    // });
+};
+
+
+
   return (
     <div>
-        <h1>Delete a post</h1>
-        <form id="delete-blog" action="#" onSubmit={(e) => {e.preventDefault(); props.deleteBlog(deleteBlog); setDeleteBlog("");}}>
-            <fieldset>
-                <label>User Id</label>
-                <input type="text" id="delete-user-id" value={deleteBlog} onChange={(e) => setDeleteBlog(e.target.value)}/>
-            </fieldset>
-            <input type="submit" />
-        </form>
+        {/* {error && <div>{error}</div>} */}
+        <button className='deleteBtn' onClick={handleOnClick}>Delete Post</button>
     </div>
   )
 }

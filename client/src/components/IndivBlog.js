@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import {Delete} from './Delete'
 
 export const IndivBlog = () => {
     let params = useParams();
-    console.log('params', params)
+    console.log('params', params);
     const [blogs, setBlogs] = useState([]);
     // const {blogId} = props.match.params;
 
@@ -35,7 +36,8 @@ export const IndivBlog = () => {
                 {<img width='450px' src={blogs.img} alt={blogs.alt}></img>}</h3>
                 <br/>
             <Link to='/edit'><button>Edit</button></Link>
-            <Link to="/specific"><button>Delete</button></Link>
+            {/* <Link to="/blogs/:blogId/delete"><button>Delete</button></Link> */}
+            <Delete />
         </div>
       </div>
   )

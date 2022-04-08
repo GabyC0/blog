@@ -12,7 +12,7 @@ import {About} from './components/About'
 import {Contact} from './components/Contact'
 // import {Edit} from './components/Edit'
 import {Delete} from './components/Delete'
-import {useParams} from 'react-router-dom'
+//import {useParams} from 'react-router-dom'
 
 function App() {
   return (

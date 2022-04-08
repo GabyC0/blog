@@ -2,10 +2,11 @@ import React from 'react'
 
 export const Contact = () => {
   return (
+      <div>
+          <h1>Get in touch</h1>
     <div className='contactMe'>
-        
         <form>
-        <h1>Contact Me</h1>
+        <h2>Contact Me</h2>
         <fieldset>
             <label>First Name</label>
             <input type="text" id="firstname" name="firstname" placeholder='Your name...'/>
@@ -20,8 +21,32 @@ export const Contact = () => {
 
             <input type="Submit" value="Send Message"/>
         </fieldset>
-
         </form>
+        
     </div>
+
+
+    <div class="subscribe">
+        <form >      
+            <div>
+                <h2>Subscribe to our Newsletter</h2>
+                <p>Lorem ipsum text about why you should subscribe to our newsletter blabla. Lorem ipsum text about why you should subscribe to our newsletter blabla.</p>
+            </div>
+            <fieldset>
+                <div class="container">
+                    <input type="text" placeholder="Name" name="name" required/>
+                    <br/>
+                    <input type="text" placeholder="Email address" name="mail" required/>
+                </div>
+
+                <div class="container">
+                    <input type="submit" value="Subscribe"/>
+                </div>
+            </fieldset>
+        </form>
+
+            </div>
+    </div>
+
   )
 }
