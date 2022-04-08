@@ -18,6 +18,7 @@ const handleOnClick = () => {
         }).then(() => {  
         navigate('/blogs');
     })
+    //install alert and use this to confirm delete
     // confirmAlert({
     //     title: 'Confirm to submit',
     //     message: 'Are you sure you want to delete?',

@@ -1,6 +1,8 @@
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 
 const Create = (props) => {
+    let navigate = useNavigate();
     const [blog, setBlogPost] = useState({
         title: "",
         blurb: "",
@@ -70,6 +72,7 @@ const Create = (props) => {
             updateBlog(blog);
         } else {
             postBlog(blog);
+            navigate('/blogs');
         }
     };
 
