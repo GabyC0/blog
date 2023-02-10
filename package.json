@@ -4,7 +4,8 @@
   },
   "devDependencies": {
     "eslint": "^8.11.0",
-    "eslint-plugin-react": "^7.29.4"
+    "eslint-plugin-react": "^7.29.4",
+    "gh-pages": "^5.0.0"
   },
   "scripts": {
     "lint": "eslint *.js"
