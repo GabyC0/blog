@@ -20,6 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+    "homepage": "http://gabyC0.github.io/blog",
   "eslintConfig": {
     "extends": [
       "react-app",
