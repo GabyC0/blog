@@ -5,7 +5,8 @@ export const Nav = () => {
   return (
     <div className="navigation">
         <div className="logo">
-            Logo
+            {/* Logo */}
+            <img src="passport.png" alt="logo"style={{height:"50px"}}/>
         </div>
         <nav className="item">
             <ul className='ul'>

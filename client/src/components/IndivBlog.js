@@ -5,6 +5,7 @@ import {Delete} from './Delete'
 
 export const IndivBlog = () => {
     let params = useParams();
+    
     console.log('params', params);
     const [blogs, setBlogs] = useState([]);
     // const {blogId} = props.match.params;

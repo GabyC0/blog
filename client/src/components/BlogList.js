@@ -13,7 +13,7 @@ function BlogList() {
         fetch("http://localhost:5001/api/blogs")
         .then((response) => response.json())
         .then(blogs =>{
-                   setBlogs(blogs);     
+          setBlogs(blogs);     
         })
         
     }, []);

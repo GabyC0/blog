@@ -21,18 +21,6 @@ function App() {
 
         <Nav />
     <Routes>
-      {/* <Route path="/" element={<App/>}> */}
-        {/* <Route index element={<Home />}/> */}
-        {/* <Route path="blogs" element={<BlogList/>}>
-          <Route path=":blogId" element ={<IndivBlog/>}/>
-          <Route path="create" element={<Create />}/>
-        <Route path="*" element={
-          <main style={{ padding: "1rem" }}>
-            <p>There's nothing here!</p>
-          </main>
-          }/>
-      </Route> */}
-      {/* </Route> */}
       <Route exact path='/' element={<Home />}>
         <Route
         path="*"
@@ -46,9 +34,7 @@ function App() {
 
 
       <Route exact path='/blogs' element={<BlogList />}/>
-      {/* <Route path="/blogs/:blogId" render={(props) => <IndivBlog {...props} />}/> */}
         <Route path="/blogs/:blogId" element={<IndivBlog/>}/>
-          {/* <Route path="/blogs/:blogId/edit" element={<Edit />}/> */}
           <Route path="/blogs/:blogId/delete" element={<Delete />}/>
       <Route path='/create' element={<Create />}/>
       <Route path='/about' element={<About />}/>

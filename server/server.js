@@ -70,9 +70,6 @@ app.put('/api/blogs/:blogId', cors(), async (req, res) => {
 
 app.delete('/api/blogs/:blogId', cors(), async (req, res) => {
     const blogId = req.params.blogId;
-    //should I be using $1????
-    //first param query, second is arr of vals used in query => index into the arr where first is $1
-    //can eliminate , [blogId] bc being reffed before
     await db.query(`DELETE FROM blogposts WHERE id=${blogId}`);
     res.status(200).end();
 })
